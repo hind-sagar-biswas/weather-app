@@ -15,7 +15,7 @@ body {
 
 main {
     width: 100svw;
-    height: 100%;
+    height: 100svh;
 
     display: flex;
     align-items: center;
