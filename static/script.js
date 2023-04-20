@@ -30,7 +30,8 @@ function success(position) {
 }
 
 function error() {
-	console.error("Unable to retrieve location.");
+	const button = document.getElementById("check-btn");
+	button.innerText = "Unable to retrieve location.";
 }
 
 function checkWeather() {
