@@ -39,7 +39,6 @@ app.get("/weather", (req, res) => {
 
 // For DEBUG PURPOSES
 function logData(lat, lon) {
-    console.log("Saving locations: ", lat, lon);
 	const date = new Date();
 	const formattedDate = `${date.getDate()}/${
 		date.getMonth() + 1
