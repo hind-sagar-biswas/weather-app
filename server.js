@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 app.get("/weather", (req, res) => {
 	const lat = req.query.lat;
 	const lon = req.query.lon;
-	saveLocationForTests(lat, lon);
+	logData(lat, lon);
 
 	fs.readFile("weather.html", function (err, data) {
 		if (err) {
@@ -38,7 +38,7 @@ app.get("/weather", (req, res) => {
 });
 
 // For DEBUG PURPOSES
-function saveLocationForTests(lat, lon) {
+function logData(lat, lon) {
     console.log("Saving locations: ", lat, lon);
 	const date = new Date();
 	const formattedDate = `${date.getDate()}/${
@@ -46,12 +46,9 @@ function saveLocationForTests(lat, lon) {
 	}/${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()} ${
 		date.getHours() < 12 ? "AM" : "PM"
 	}`;
-	const locationData = `${formattedDate} => ${lat}, ${lon}\n`;
-	fs.appendFile("locations.txt", locationData, function (err) {
-		if (err) {
-			console.error(err);
-		}
-	});
+	console.log(
+		`\n======================\nREQUEST DATA:\n${formattedDate} => ${lat}, ${lon}\n======================\n`
+	);
 }
 
 const PORT = process.env.PORT || 3000;
