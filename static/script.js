@@ -38,6 +38,7 @@ function checkWeather() {
 }
 
 window.onload = function () {
+	checkWeather();
 	setTimeout(function () {
 		var checkDiv = document.getElementById("checkdv_1");
 		if (checkDiv) {
